@@ -1,0 +1,14 @@
+#footer
+  .container
+    .row
+      .col-md-4.col-sm-4
+        %p.text_left © 2015 NotionTheory LLC. All rights reserved.
+      .col-md-4.col-sm-4
+        -#= link_to pages_privacy_policy_path do
+        -#  %p.text-center Privacy Policy
+      .col-md-4.col-sm-4
+        .text_right
+          = link_to '#' do
+            = image_tag 'facebook-48.png'
+          = link_to '#' do
+            = image_tag 'twitter-48.png'
