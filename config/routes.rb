@@ -1,8 +1,35 @@
 Rails.application.routes.draw do
+
+  get "/search/index", to: 'search#index', as: "/search/"
+
+  match "http://ec2-54-149-247-197.us-west-2.compute.amazonaws.com:8888/data" => 'search#index', via: :get
+
+  resources :user_distributors
+
+  resources :distributors
+
   root to: 'pages#index'
+
   get 'contact' => 'pages#contact'
+
   get 'about' => 'pages#about'
+
+  get 'search' => 'search#index'
+
+
   devise_for :users
+
+  resources :search
+
+  resources :users do
+    resources :user_distributors
+  end
+
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

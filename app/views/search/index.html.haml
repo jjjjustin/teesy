@@ -1,0 +1,32 @@
+.input-group
+  = text_field_tag :key
+  = text_field_tag :search
+  = submit_tag "Search"
+
+.row
+  - @response["_items"].each do |item|
+    .col-sm-6.col-md-4
+      .thumbnail
+      .caption
+        %h1
+          = item["title"]
+        %p
+          = item["color"]
+          = item["size"]
+          = item["price"]
+
+.row
+  - @response["_links"].each do |link|
+    .col-sm-6.col-md-4
+
+    %p
+      = link_to "#{link[1]["title"]}", link[1]
+
+
+
+
+
+
+
+
+

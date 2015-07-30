@@ -1,0 +1,40 @@
+.row
+
+  .col-md-12
+    %h2 Distributors
+  .col-md-12
+    .row
+      #ideas
+      - @distributors.each do |distributor|
+        .col-md-4
+          .idea
+            %span.idea-header
+              .dotdotdot-wrapper
+                %h4
+                  = distributor.name
+            %span.idea-footer.text-center
+              %button.distributor-selector.btn.btn-sm{id: distributor.id.to_s, remote: true}
+                = link_to new_user_distributor_path, remote: true do
+                  %button.btn.btn-default Add distributor
+
+
+.row
+  #user-distributor-form.col-md-6{:style => "display:none;"}
+.row.col-md-6
+.row
+  #user-distributors.col-md-12
+    = render 'user_distributor'
+
+
+/ :javascript
+/   function distributor_init(){
+/     $('.distributor-selector').on('click', function(e){
+/       distributor_array = []
+/       $(this).toggleClass('active-distributor');
+/       $('#user_distributor_distributor_id').val(this.id.split('-')[1]);
+/       e.preventDefault();
+/       return false;
+/     });
+
+/   }
+/   $.turbo.addCallback(distributor_init);

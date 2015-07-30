@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
+gem 'bootstrap-multiselect-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -29,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'hirb'
+  gem 'faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -44,3 +49,10 @@ gem 'haml', '~> 4.0.5'
 gem 'haml-rails', '~> 0.8.2'
 gem 'mixpanel-ruby', '~> 1.7.0'
 gem 'rolify', '~> 3.5.2'
+gem 'simple_form', '3.1.0'
+gem 'better_errors'
+gem 'jquery-turbolinks'
+gem 'multi-select-rails'
+gem 'cocoon'
+gem 'nokogiri'
+gem 'httparty'

@@ -1,0 +1,42 @@
+%h1.text-center
+  Please select all distributors with whom you hold accounts
+
+
+.row
+  #ideas
+  - @distributors.each do |distributor|
+    .col-md-4
+      .idea
+        %span.idea-header
+          .dotdotdot-wrapper
+            %h4
+              = distributor.name
+              = distributor.id
+
+        %span.idea-footer.text-center
+          %button.distributor-selector.btn.btn-sm{id: 'distributor-'+distributor.id.to_s}
+            Add this distributor
+
+
+
+
+
+
+%div.text-center
+  = button_tag(type: 'submit', class: "btn btn-primary btn-lg") do
+    %i.fa.fa-check-circle-o
+    Add these distributors
+
+:javascript
+  function distributor_init(){
+    $('.distributor-selector').on('click', function(e){
+      / $('.distributor-selector').removeClass('active-distributor');
+      $(this).addClass('active-distributor');
+      $('#distributor_id').val(this.id.split('-')[1]);
+      e.preventDefault();
+      return false;
+    });
+
+  }
+  $.turbo.addCallback(template_init);
+

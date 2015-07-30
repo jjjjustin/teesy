@@ -1,33 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700)
-
-$text-color: #5b5e60 !default
-$body-bg: #f9f9f9 !default
-$white: #fff
-
-$gray-base: #999 !default
-$gray-light-1: lighten($gray-base, 36%) // #f5f5f5
-$gray-light-2: lighten($gray-base, 29.8%) // #e5e5e5
-$gray-light-3: #c2c8cd
-$gray-light-4: lighten($gray-base, 6.8%) // #aaa
-
-$color-primary: #2196F3
-$color-primary-light: lighten($color-primary, 10%)
-$color-primary-dark: darken($color-primary, 10%)
-$color-secondary: #F44336
-$color-secondary-light: lighten($color-secondary, 10%)
-$color-secondary-dark: darken($color-secondary, 10%)
-
-$font-family-sans-serif: "Open Sans", sans-serif !default
-$font-size-h1: 60px !default
-$font-size-h2: 40px !default
-$font-size-h3: 26px !default
-$font-size-h4: 22px !default
-$font-size-h5: 17px !default
-$font-size-base: 14px !default
-
-$link-color: $color-primary !default
-
-$border-radius-base: 4px !default
+@import "bootstrap-custom"
 
 // Global Styling
 h1, h2 ,h3, h4, h5, p
@@ -46,7 +18,7 @@ h1, h2 ,h3, h4, h5, p
 
 // Navigation
 .navbar
-  background-color: $color-primary
+  background-color: gray
   border: none
   border-radius: 0
   margin-bottom: 0
@@ -59,13 +31,13 @@ h1, h2 ,h3, h4, h5, p
 .btn:hover
   opacity: 0.8
 .btn-primary
-  background-color: $color-primary
+  background-color: gray
   border-color: $color-primary
 .btn-primary:hover
-  background-color: $color-primary
+  background-color: white
   border-color: $color-primary
 a
-  color: $color-primary
+  color: black
 
 
 // Utility Classes
@@ -131,6 +103,9 @@ input.form-control
     line-height: 5em
   a:hover
     text-decoration: none
+
+.active-distributor
+  background-color: $color-primary
 
 
 

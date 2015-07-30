@@ -22,6 +22,8 @@ module Teesy
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.search_root = "http://ec2-54-149-247-197.us-west-2.compute.amazonaws.com:8888/"
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

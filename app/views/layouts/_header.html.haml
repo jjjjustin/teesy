@@ -1,22 +1,33 @@
-%nav.navbar
-  .container
-    / Brand and toggle get grouped for better mobile display
+
+%nav.navbar.transparent
+  .container-fluid
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      .navbar-brand= link_to('Home','/')
+      .navbar-brand.glyphicon.glyphicon-adjust
+        = link_to "Teesy", root_path
+
+
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        -#- if user_signed_in?
-        -#  %li
-        -#    = link_to "Profile", edit_user_registration_path
-        -#  %li
-        -#    = link_to "Sign out", destroy_user_session_path, :method => :delete
-        -#- else
-        -#  %li
-        -#    = link_to "Sign up", new_user_registration_path
-        -#  %li
-        -#    = link_to "Sign in", new_user_session_path
+        - if user_signed_in?
+          %li
+            = link_to "Profile", edit_user_registration_path
+          %li
+            = link_to "Sign out", destroy_user_session_path, :method => :delete
+          %li
+            = link_to "Search", search_path(current_user.id)
+          %li
+            = link_to "Update distributors", new_user_user_distributor_path(current_user.id)
+          %li
+            = link_to "View distributors", user_user_distributors_path(current_user.id)
+        - else
+          %li
+            = link_to "Sign up", new_user_registration_path
+          %li
+            = link_to "Sign in", new_user_session_path
+
+

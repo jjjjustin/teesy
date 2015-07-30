@@ -1,0 +1,19 @@
+.row
+  .col-md-12
+    %h2 Distributors
+  .col-md-12
+    .row
+      #ideas
+      - @user_distributors.each do |u|
+        .col-md-4
+          .idea
+            %span.idea-header
+              .dotdotdot-wrapper
+                %h4
+                  = u.name
+            %span.idea-footer.text-center
+              %button.user-distributor-selector.btn.btn-sm{id: 'user-distributor-'+u.id.to_s, remote: true}
+                = link_to edit_user_distributor_path(u.id), remote: true do
+                  %button.btn.btn-default Remove distributor
+
+
