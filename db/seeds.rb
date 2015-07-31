@@ -10,3 +10,7 @@
 20.times do
   Distributor.create([{ name: Faker::Company.name }])
 end
+
+
+admin = User.create(email: 'admin@teesy.com', password: 'password', password_confirmation: 'password', admin: true)
+user = User.create(email: 'user@teesy.com', password: 'password', password_confirmation: 'password')
