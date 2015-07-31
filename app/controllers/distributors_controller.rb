@@ -5,30 +5,25 @@ class DistributorsController < ApplicationController
   # GET /distributors.json
   def index
     @distributors = Distributor.all
+    @distributor = Distributor.new
   end
 
-  # GET /distributors/1
-  # GET /distributors/1.json
   def show
   end
 
-  # GET /distributors/new
   def new
     @distributor = Distributor.new
   end
 
-  # GET /distributors/1/edit
   def edit
   end
 
-  # POST /distributors
-  # POST /distributors.json
   def create
     @distributor = Distributor.new(distributor_params)
 
     respond_to do |format|
       if @distributor.save
-        format.html { redirect_to @distributor, notice: 'Distributor was successfully created.' }
+        format.html { redirect_to distributors_path, notice: 'Distributor was successfully created.' }
         format.json { render :show, status: :created, location: @distributor }
       else
         format.html { render :new }
@@ -37,8 +32,6 @@ class DistributorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /distributors/1
-  # PATCH/PUT /distributors/1.json
   def update
     respond_to do |format|
       if @distributor.update(distributor_params)
@@ -51,8 +44,6 @@ class DistributorsController < ApplicationController
     end
   end
 
-  # DELETE /distributors/1
-  # DELETE /distributors/1.json
   def destroy
     @distributor.destroy
     respond_to do |format|

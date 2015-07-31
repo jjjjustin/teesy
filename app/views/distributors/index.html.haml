@@ -1,21 +1,45 @@
-%h1 Listing distributors
+%h1
+  Distributors
+.panel.panel-default
+  .panel-heading
+    Add or remove distributors
+    %span
+    %button.btn.btn-primary.btn-sm{"data-target" => "#addDistributorModal", "data-toggle" => "modal"}
+      Add Distributor
+  %table.table
+    %th Name
+    %th Show
+    %th Edit
+    %th Destroy
+    #distributors
+      - @distributors.each do |distributor|
+        %tr
+          %td= distributor.name
+          %td= link_to 'Show', distributor
+          %td= link_to 'Edit', edit_distributor_path(distributor)
+          %td= link_to 'Destroy', distributor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @distributors.each do |distributor|
-      %tr
-        %td= distributor.name
-        %td= link_to 'Show', distributor
-        %td= link_to 'Edit', edit_distributor_path(distributor)
-        %td= link_to 'Destroy', distributor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Distributor', new_distributor_path
+
+
+/ Modal
+#addDistributorModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %h4#myModalLabel.modal-title Add Distributor
+
+      = simple_form_for @distributor do |f|
+        .modal-body
+          = f.input :name, required: true
+          = f.input :url, required: true
+        .modal-footer
+          = button_tag(type: 'submit', class: "btn btn-primary") do
+            %i.fa.fa-check-circle-o
+            Add Distributor
+
+

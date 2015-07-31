@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-20.times do
+10.times do
   Distributor.create([{ name: Faker::Company.name }])
 end
 

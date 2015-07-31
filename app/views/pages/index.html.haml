@@ -3,9 +3,13 @@
     %h1 Teesy
     %p
       The easiest way to find the *best* distributor prices available!
-    .btn.btn-lg.btn-primary
-      = link_to "Learn More"
-    .btn.btn-lg.btn-primary
-      = link_to "Sign up now!", new_user_registration_path
+    - if user_signed_in?
+      .btn.btn-lg.btn-primary
+        = link_to "Learn More"
+    - else
+      .btn.btn-lg.btn-primary
+        = link_to "Learn More"
+      .btn.btn-lg.btn-primary
+        = link_to "Sign up now!", new_user_registration_path
 
 

@@ -24,7 +24,7 @@
             = link_to "My distributors", user_user_distributors_path(current_user.id)
           - if current_user.admin?
             %li
-              = link_to "Add distributor", new_distributor_path
+              = link_to "View all distributors", distributors_path
         - else
           %li
             = link_to "Sign up", new_user_registration_path
