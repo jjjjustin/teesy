@@ -3,7 +3,8 @@ class SearchController < ApplicationController
 
   def index
     query = params.fetch(:query, 'crew')
-    search_color = params.fetch(:color, 'WHITE')
+    color = params.fetch(:color, 'WHITE')
+    search_color = color.upcase
     page = params.fetch(:page, 0)
     black = '"' + search_color + '"'
     filter = '[{"color":' + "#{black}}]"
