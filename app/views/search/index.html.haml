@@ -1,11 +1,14 @@
 .navbar
-  .navbar-innerTeesy
+  .navbar-inner
     %ul.nav
       %li
         = form_tag('/search/', method: 'get') do
-          = search_field_tag('query')
-          = search_field_tag('color')
+          = text_field_tag :query, params[:query], placeholder: "Search for shirts"
+          = text_field_tag :color, params[:color], placeholder: "Pick a color (optional)"
+          = search_field_tag(:page)
           = submit_tag('Search')
+
+
 
 
 
@@ -35,4 +38,7 @@
           - code = item["code"]
           = link_to "View item", "http://temporaryshirts.herokuapp.com/itemcode?code=#{code}"
 
+
   .col-md-1
+
+
