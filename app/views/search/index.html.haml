@@ -1,32 +1,38 @@
-.input-group
-  = text_field_tag :key
-  = text_field_tag :search
-  = submit_tag "Search"
+.navbar
+  .navbar-innerTeesy
+    %ul.nav
+      %li
+        = form_tag('/search/', method: 'get') do
+          = search_field_tag('query')
+          = search_field_tag('color')
+          = submit_tag('Search')
+
+
 
 .row
-  - @response["_items"].each do |item|
-    .col-sm-6.col-md-4
-      .thumbnail
-      .caption
-        %h1
-          = item["title"]
-        %p
+  .col-md-1
+  .col-md-10
+    - @items.each do |item|
+      .panel.panel-primary
+        .panel-heading
+          %h3.panel-title
+            = link_to item["title"], item["originalUrl"]
+        .panel-body
+          - if item["code"] == "4662B"
+            You have an account with this distributor
+          - else
+            You need to sign up with this distributor to view prices
+        .panel-body
+          - if item["salePrice"].blank?
+            No price available
+          - else
+            = "$#{item["salePrice"]}"
+        .panel-body
           = item["color"]
-          = item["size"]
-          = item["price"]
+        .panel-body
+          = item["source"]
+        .panel-body
+          - code = item["code"]
+          = link_to "View item", "http://temporaryshirts.herokuapp.com/itemcode?code=#{code}"
 
-.row
-  - @response["_links"].each do |link|
-    .col-sm-6.col-md-4
-
-    %p
-      = link_to "#{link[1]["title"]}", link[1]
-
-
-
-
-
-
-
-
-
+  .col-md-1

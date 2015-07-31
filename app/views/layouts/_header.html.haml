@@ -19,7 +19,7 @@
           %li
             = link_to "Sign out", destroy_user_session_path, :method => :delete
           %li
-            = link_to "Search", search_path(current_user.id)
+            = link_to "Search", search_index_path
           %li
             = link_to "Update distributors", new_user_user_distributor_path(current_user.id)
           %li

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get "/search/index", to: 'search#index', as: "/search/"
 
-  match "http://ec2-54-149-247-197.us-west-2.compute.amazonaws.com:8888/data" => 'search#index', via: :get
 
   resources :user_distributors
 
